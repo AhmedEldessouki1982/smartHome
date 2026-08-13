@@ -6,3 +6,6 @@ node_modules/
 dist/
 build/
 .DS_Store
+
+# MOES catalogues — never push (large binaries)
+resources/*.pdf
