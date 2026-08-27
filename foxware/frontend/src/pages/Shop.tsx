@@ -1,8 +1,10 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 import { Search, SlidersHorizontal } from 'lucide-react';
 import { ProductCard } from '../components/ProductCard';
 import { api } from '../lib/api';
+import { SITE_NAME, SITE_URL, OG_IMAGE_URL } from '../lib/seo';
 
 interface ProductItem {
   id: string;
@@ -52,6 +54,21 @@ export default function Shop() {
 
   return (
     <div className="min-h-screen relative">
+      <Helmet>
+        <title>{`Shop — ${SITE_NAME}`}</title>
+        <meta name="description" content="Browse smart home and office devices: thermostats, CCTV cameras, access control, mesh WiFi, and self-hosted servers. Request a quote and get pricing from an automation specialist." />
+        <link rel="canonical" href={`${SITE_URL}/shop`} />
+        <meta property="og:type" content="website" />
+        <meta property="og:site_name" content={SITE_NAME} />
+        <meta property="og:title" content={`Shop — ${SITE_NAME}`} />
+        <meta property="og:description" content="Browse smart home and office devices and request a quote." />
+        <meta property="og:url" content={`${SITE_URL}/shop`} />
+        <meta property="og:image" content={OG_IMAGE_URL} />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={`Shop — ${SITE_NAME}`} />
+        <meta name="twitter:description" content="Browse smart home and office devices and request a quote." />
+        <meta name="twitter:image" content={OG_IMAGE_URL} />
+      </Helmet>
       <div className="hero-grid" aria-hidden="true" />
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 py-12 md:py-16">
         <div className="mb-10">

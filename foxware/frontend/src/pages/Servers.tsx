@@ -1,9 +1,11 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 import { Server, Shield, Cpu, HardDrive } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { api } from '../lib/api';
 import { ProductCard } from '../components/ProductCard';
+import { SITE_NAME, SITE_URL, OG_IMAGE_URL } from '../lib/seo';
 
 interface ProductItem {
   id: string;
@@ -33,6 +35,21 @@ export default function Servers() {
 
   return (
     <div className="min-h-screen relative">
+      <Helmet>
+        <title>{`Server Solutions — ${SITE_NAME}`}</title>
+        <meta name="description" content="Self-hosted rack servers and multi-bay NAS with RAID redundancy. No cloud required, no subscription fees. Local AI inference, CCTV storage, and automation hubs in Egypt." />
+        <link rel="canonical" href={`${SITE_URL}/servers`} />
+        <meta property="og:type" content="website" />
+        <meta property="og:site_name" content={SITE_NAME} />
+        <meta property="og:title" content={`Server Solutions — ${SITE_NAME}`} />
+        <meta property="og:description" content="Run your own automation server. No cloud required, no subscription fees." />
+        <meta property="og:url" content={`${SITE_URL}/servers`} />
+        <meta property="og:image" content={OG_IMAGE_URL} />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={`Server Solutions — ${SITE_NAME}`} />
+        <meta name="twitter:description" content="Run your own automation server. No cloud required, no subscription fees." />
+        <meta name="twitter:image" content={OG_IMAGE_URL} />
+      </Helmet>
       <div className="hero-grid" aria-hidden="true" />
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 py-12 md:py-16">
         <div className="text-center mb-12">

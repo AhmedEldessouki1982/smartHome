@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+
+# NOTE: production name/domain is NOT finalized yet. When it changes,
+# update this Sitemap line and sitemap.xml to the real domain.
+Sitemap: https://almashareq.com/sitemap.xml

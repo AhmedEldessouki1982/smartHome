@@ -1,9 +1,11 @@
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 import { ArrowLeft, Send } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useCartStore } from '../store/cart';
 import { api } from '../lib/api';
+import { SITE_NAME } from '../lib/seo';
 
 export default function Checkout() {
   const { items, clearCart } = useCartStore();
@@ -54,6 +56,11 @@ export default function Checkout() {
 
   return (
     <div className="min-h-screen py-12">
+      <Helmet>
+        <title>{`Submit Quote Request — ${SITE_NAME}`}</title>
+        <meta name="description" content="Submit your quote request. AL-Mashareq will contact you with pricing for the smart home and office devices you selected." />
+        <meta name="robots" content="noindex, follow" />
+      </Helmet>
       <div className="max-w-4xl mx-auto px-4 sm:px-6">
         <Link to="/cart" className="inline-flex items-center gap-2 text-sm text-[var(--text-muted)] hover:text-[var(--text-primary)] transition-colors mb-8">
           <ArrowLeft className="w-4 h-4" />

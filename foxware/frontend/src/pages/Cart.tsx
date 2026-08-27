@@ -1,13 +1,20 @@
 import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 import { Trash2, Minus, Plus, ShoppingBag, ArrowLeft } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useCartStore } from '../store/cart';
+import { SITE_NAME } from '../lib/seo';
 
 export default function Cart() {
   const { items, removeItem, updateQty, clearCart } = useCartStore();
 
   return (
     <div className="min-h-screen py-12">
+      <Helmet>
+        <title>{`Quote Request — ${SITE_NAME}`}</title>
+        <meta name="description" content="Review the items you want to include in a quote request and submit them for pricing from AL-Mashareq." />
+        <meta name="robots" content="noindex, follow" />
+      </Helmet>
       <div className="max-w-4xl mx-auto px-4 sm:px-6">
         <div>
           <h1 className="text-3xl font-bold text-[var(--text-primary)] mb-2" style={{ fontFamily: 'var(--heading)' }}>

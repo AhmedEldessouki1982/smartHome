@@ -5,7 +5,6 @@ import { CategoriesModule } from './categories/categories.module';
 import { OrdersModule } from './orders/orders.module';
 import { CartModule } from './cart/cart.module';
 import { AuthModule } from './auth/auth.module';
-import { PaymentModule } from './payment/payment.module';
 import { PrismaModule } from './prisma/prisma.module';
 import { AdminModule } from './admin/admin.module';
 import { AiModule } from './ai/ai.module';
@@ -19,7 +18,6 @@ import { QuotesModule } from './quotes/quotes.module';
     OrdersModule,
     CartModule,
     AuthModule,
-    PaymentModule,
     PrismaModule,
     AdminModule,
     AiModule,

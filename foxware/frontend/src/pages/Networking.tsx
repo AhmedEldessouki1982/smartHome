@@ -1,9 +1,11 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 import { Globe, Wifi, Shield, Server } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { api } from '../lib/api';
 import { ProductCard } from '../components/ProductCard';
+import { SITE_NAME, SITE_URL, OG_IMAGE_URL } from '../lib/seo';
 
 interface ProductItem {
   id: string;
@@ -33,6 +35,21 @@ export default function Networking() {
 
   return (
     <div className="min-h-screen relative">
+      <Helmet>
+        <title>{`Networking Solutions — ${SITE_NAME}`}</title>
+        <meta name="description" content="WiFi mesh, managed switches, and IP67 outdoor access points for smart home and office. Self-hosted, no third-party cloud, installed and configured on-site in Egypt." />
+        <link rel="canonical" href={`${SITE_URL}/networking`} />
+        <meta property="og:type" content="website" />
+        <meta property="og:site_name" content={SITE_NAME} />
+        <meta property="og:title" content={`Networking Solutions — ${SITE_NAME}`} />
+        <meta property="og:description" content="WiFi mesh, managed switches, and outdoor access points — configured on install." />
+        <meta property="og:url" content={`${SITE_URL}/networking`} />
+        <meta property="og:image" content={OG_IMAGE_URL} />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={`Networking Solutions — ${SITE_NAME}`} />
+        <meta name="twitter:description" content="WiFi mesh, managed switches, and outdoor access points — configured on install." />
+        <meta name="twitter:image" content={OG_IMAGE_URL} />
+      </Helmet>
       <div className="hero-grid" aria-hidden="true" />
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 py-12 md:py-16">
         <div className="text-center mb-12">

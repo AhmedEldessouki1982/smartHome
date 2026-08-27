@@ -1,8 +1,25 @@
+import { Helmet } from 'react-helmet-async';
 import { Phone, Mail, MapPin, Clock, MessageCircle } from 'lucide-react';
+import { SITE_NAME, SITE_URL, OG_IMAGE_URL } from '../lib/seo';
 
 export default function Contact() {
   return (
     <div className="min-h-screen py-12">
+      <Helmet>
+        <title>{`Contact Us — ${SITE_NAME}`}</title>
+        <meta name="description" content="Get in touch with Ahmed Eldessouki, Automation Specialist. Free consultation for smart home, office security, networking, and server projects in Egypt." />
+        <link rel="canonical" href={`${SITE_URL}/contact`} />
+        <meta property="og:type" content="website" />
+        <meta property="og:site_name" content={SITE_NAME} />
+        <meta property="og:title" content={`Contact Us — ${SITE_NAME}`} />
+        <meta property="og:description" content="Ready to automate your home or office? Contact Ahmed Eldessouki for a free consultation." />
+        <meta property="og:url" content={`${SITE_URL}/contact`} />
+        <meta property="og:image" content={OG_IMAGE_URL} />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={`Contact Us — ${SITE_NAME}`} />
+        <meta name="twitter:description" content="Ready to automate your home or office? Contact Ahmed Eldessouki for a free consultation." />
+        <meta name="twitter:image" content={OG_IMAGE_URL} />
+      </Helmet>
       <div className="max-w-4xl mx-auto px-4 sm:px-6">
         <div className="text-center mb-12">
           <p className="text-sm font-medium tracking-wide uppercase text-[var(--accent)] mb-3">Get in touch</p>
