@@ -1,0 +1,231 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  --sans: 'Inter', system-ui, 'Segoe UI', Roboto, sans-serif;
+  --heading: 'DM Sans', system-ui, sans-serif;
+  --mono: 'JetBrains Mono', ui-monospace, Consolas, monospace;
+  --arabic: 'Cairo', sans-serif;
+
+  /* Surfaces */
+  --bg-primary: #FAFAF8;
+  --bg-secondary: #F2F1EE;
+  --bg-card: #FFFFFF;
+  --bg-input: #F2F1EE;
+  --bg-muted: #ECEAE5;
+
+  /* Text */
+  --text-primary: #1A1A1A;
+  --text-secondary: #4A4A4A;
+  --text-muted: #6B6B6B;
+  --text-faint: #9A9A9A;
+
+  /* Borders */
+  --border-primary: #DDD9D2;
+  --border-secondary: #C8C4BC;
+  --border-hover: #B0ACA4;
+  --border-focus: #D4A853;
+
+  /* Shadows & overlays */
+  --shadow-card: 0 1px 3px rgba(0,0,0,0.06), 0 2px 8px rgba(0,0,0,0.04);
+  --overlay-bg: rgba(0,0,0,0.4);
+
+  /* Warm gold accent */
+  --accent: #D4A853;
+  --accent-hover: #C49A42;
+  --accent-muted: rgba(212,168,83,0.1);
+  --accent-border: rgba(212,168,83,0.3);
+
+  /* Scrollbar */
+  --scrollbar-track: #F2F1EE;
+  --scrollbar-thumb: #D0CCC4;
+  --scrollbar-thumb-hover: #B0ACA4;
+
+  /* Status */
+  --status-green: #3D8B37;
+  --status-red: #C0392B;
+  --status-amber: #D4A853;
+  --status-off: #9A9A9A;
+}
+
+.dark {
+  /* Surfaces */
+  --bg-primary: #1A1A1A;
+  --bg-secondary: #222222;
+  --bg-card: #262626;
+  --bg-input: #2E2E2E;
+  --bg-muted: #333333;
+
+  /* Text */
+  --text-primary: #E8E6E3;
+  --text-secondary: #C0BCB6;
+  --text-muted: #9A9A9A;
+  --text-faint: #6B6B6B;
+
+  /* Borders */
+  --border-primary: #3A3A3A;
+  --border-secondary: #4A4A4A;
+  --border-hover: #5A5A5A;
+  --border-focus: #E0B860;
+
+  /* Shadows & overlays */
+  --shadow-card: 0 1px 3px rgba(0,0,0,0.3), 0 2px 8px rgba(0,0,0,0.2);
+  --overlay-bg: rgba(0,0,0,0.6);
+
+  /* Warm gold accent — brighter in dark */
+  --accent: #E0B860;
+  --accent-hover: #EAC974;
+  --accent-muted: rgba(224,184,96,0.12);
+  --accent-border: rgba(224,184,96,0.3);
+
+  /* Scrollbar */
+  --scrollbar-track: #262626;
+  --scrollbar-thumb: #4A4A4A;
+  --scrollbar-thumb-hover: #5A5A5A;
+
+  /* Status */
+  --status-green: #5BAF52;
+  --status-red: #E05545;
+  --status-amber: #E0B860;
+  --status-off: #6B6B6B;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: var(--sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#root {
+  min-height: 100svh;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--scrollbar-track);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--scrollbar-thumb);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--scrollbar-thumb-hover);
+}
+
+/* Selection */
+::selection {
+  background: rgba(212, 168, 83, 0.2);
+  color: inherit;
+}
+
+/* Arabic wordmark — hero only (المشارق).
+   Scope: this class is applied ONLY to the hero wordmark element.
+   Toggle alternate — swap the font-family below to compare:
+     Lalezar (alternate): font-family: 'Lalezar', 'Cairo', sans-serif;
+     Cairo ExtraBold 800 (DEFAULT — ship this): font-family: 'Cairo', sans-serif;
+   All other Arabic text (--arabic var), the nav, and site typography are unaffected. */
+.arabic-wordmark {
+  font-family: 'Cairo', sans-serif;
+  font-weight: 800;
+}
+
+/* Hero blueprint grid */
+.hero-grid {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(var(--hero-grid-color) 1px, transparent 1px),
+    linear-gradient(90deg, var(--hero-grid-color) 1px, transparent 1px);
+  background-size: 48px 48px;
+  mask-image: radial-gradient(ellipse 80% 70% at 60% 50%, black 20%, transparent 70%);
+  -webkit-mask-image: radial-gradient(ellipse 80% 70% at 60% 50%, black 20%, transparent 70%);
+  opacity: 1;
+}
+
+/* Grid line color: warm white, very subtle — ties to the warm interior lighting theme */
+:root {
+  --hero-grid-color: rgba(26, 26, 26, 0.04);
+}
+.dark {
+  --hero-grid-color: rgba(255, 255, 255, 0.06);
+}
+
+/* Shop page: always dark with grid — continuous with the homepage hero */
+.shop-dark {
+  background: #1A1A1A;
+  --bg-card: #262626;
+  --bg-muted: #333333;
+  --bg-input: #2E2E2E;
+  --text-primary: #E8E6E3;
+  --text-secondary: #C0BCB6;
+  --text-muted: #9A9A9A;
+  --text-faint: #6B6B6B;
+  --border-primary: #3A3A3A;
+  --border-secondary: #4A4A4A;
+  --border-hover: #5A5A5A;
+  --accent: #E0B860;
+  --accent-hover: #EAC974;
+  --accent-muted: rgba(224,184,96,0.12);
+  --accent-border: rgba(224,184,96,0.3);
+  --status-red: #E05545;
+  --status-green: #5BAF52;
+  --status-amber: #E0B860;
+  --shadow-card: 0 1px 3px rgba(0,0,0,0.3), 0 2px 8px rgba(0,0,0,0.2);
+}
+.shop-dark .hero-grid {
+  --hero-grid-color: rgba(255, 255, 255, 0.06);
+}
+
+/* Marquee ticker — pure CSS, seamless loop */
+@keyframes marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+.marquee {
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(90deg, transparent, black 8%, black 92%, transparent);
+  mask-image: linear-gradient(90deg, transparent, black 8%, black 92%, transparent);
+}
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee 48s linear infinite;
+  will-change: transform;
+}
+.marquee:hover .marquee-track,
+.marquee:focus-within .marquee-track {
+  animation-play-state: paused;
+}
+
+/* Device status dots */
+.status-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  display: inline-block;
+}
+.status-dot.on { background: var(--status-green); }
+.status-dot.off { background: var(--status-off); }
+.status-dot.locked { background: var(--status-green); }
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
