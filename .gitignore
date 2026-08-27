@@ -7,5 +7,6 @@ dist/
 build/
 .DS_Store
 
-# MOES catalogues — never push (large binaries)
-resources/*.pdf
+# MOES catalogues — never push (large binary files)
+catalogues/
+resources/
